@@ -1,0 +1,13 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+.top-slide {
+  width: 500px;
+  height: 500px;
+  background-color: yellow;
+}
