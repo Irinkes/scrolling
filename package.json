@@ -16,6 +16,7 @@
   "dependencies": {
     "gulp-cli": "^2.0.1",
     "vue": "^2.5.2",
+    "vue-fullpage.js": "^0.1.2",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

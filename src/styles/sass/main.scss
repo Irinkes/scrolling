@@ -1,13 +1,27 @@
+@import "mixins.scss";
+
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333333;
 
 body {
   font: 100% $font-stack;
   color: $primary-color;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .top-slide {
-  width: 500px;
-  height: 500px;
-  background-color: yellow;
+  @include slide(yellow);
+}
+
+.middle-slide {
+  @include slide(blueviolet);
+}
+
+.bottom-slide {
+  @include slide(darkseagreen);
+}
+.transform {
+  transform: translateY(100vh);
 }

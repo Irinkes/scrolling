@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import TopPage from '@/components/TopPage'
+import 'fullpage.js/vendors/scrolloverflow'
+// import './fullpage.scrollHorizontally.min'
+import VueFullPage from 'vue-fullpage.js'
+
+Vue.use(VueFullPage)
 
 Vue.use(Router)
 
@@ -8,8 +13,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'TopPage',
+      component: TopPage
     }
   ]
 })
