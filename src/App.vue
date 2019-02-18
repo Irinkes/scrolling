@@ -1,9 +1,9 @@
 <template>
   <div id="app" :style="{ transform: pageHeight }">
 
-      <TopPage />
-      <MiddlePage />
-      <BottomPage />
+      <TopPage ref="slide" :components = 'slidesNumber'/>
+      <MiddlePage ref="slide" :components = 'slidesNumber'/>
+      <BottomPage ref="slide" :components = 'slidesNumber'/>
 
   </div>
 </template>
@@ -12,15 +12,17 @@
 import TopPage from '@/components/TopPage'
 import MiddlePage from '@/components/MiddlePage'
 import BottomPage from '@/components/BottomPage'
+import Tracker from '@/components/Tracker'
 
 export default {
-  components: {TopPage, MiddlePage, BottomPage},
+  components: {TopPage, MiddlePage, BottomPage, Tracker},
   name: 'App',
   data () {
     return {
       pageHeight: 'translateY(0)',
       heightStyle: 0,
-      scrollDirection: ''
+      scrollDirection: '',
+      slidesNumber: 0
     }
   },
   methods: {
@@ -43,6 +45,10 @@ export default {
         this.scrollDirection = 'down'
       }
     }
+  },
+
+  mounted () {
+    this.slidesNumber = this.$children.length
   },
   created () {
     window.addEventListener('wheel', this.handleScroll)

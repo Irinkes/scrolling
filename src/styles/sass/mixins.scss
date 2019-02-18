@@ -1,5 +1,14 @@
 @mixin slide($color) {
   width: 100%;
   height: 100vh;
+  position: relative;
   background-color: $color;
+}
+
+@mixin circle($size, $border, $background) {
+  width: $size;
+  height: $size;
+  border-radius: 100%;
+  border: $border;
+  background: $background;
 }

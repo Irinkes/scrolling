@@ -25,3 +25,20 @@ body {
 .transform {
   transform: translateY(100vh);
 }
+
+
+.tracker {
+  position: absolute;
+  top: 50%;
+  margin-top: -60px;
+  right: 30px;
+  list-style: none;
+}
+.tracker-item {
+  @include circle(10px, 1px solid red, none);
+  margin-bottom: 10px;
+}
+.tracker-item.active {
+  background: red;
+}
+
