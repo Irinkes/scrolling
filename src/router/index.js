@@ -4,9 +4,10 @@ import TopPage from '@/components/TopPage'
 import 'fullpage.js/vendors/scrolloverflow'
 // import './fullpage.scrollHorizontally.min'
 import VueFullPage from 'vue-fullpage.js'
+import vueSmoothScroll from 'vue2-smooth-scroll'
 
+Vue.use(vueSmoothScroll)
 Vue.use(VueFullPage)
-
 Vue.use(Router)
 
 export default new Router({

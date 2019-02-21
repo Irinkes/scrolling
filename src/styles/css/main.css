@@ -24,7 +24,39 @@ body {
   width: 100%;
   height: 100vh;
   position: relative;
-  background-color: darkseagreen;
+  background-color: white;
+  float: left;
+}
+
+.horizontal {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.horizontal .horizontal-slide {
+  display: inline-block;
+}
+
+.horizontal .horizontal-slide:nth-child(1) {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: navajowhite;
+}
+
+.horizontal .horizontal-slide:nth-child(2) {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: cornflowerblue;
+}
+
+.horizontal .horizontal-slide:nth-child(3) {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: crimson;
 }
 
 .transform {
@@ -39,7 +71,7 @@ body {
   list-style: none;
 }
 
-.tracker-item {
+.tracker .tracker-item {
   width: 10px;
   height: 10px;
   border-radius: 100%;
@@ -48,6 +80,13 @@ body {
   margin-bottom: 10px;
 }
 
-.tracker-item.active {
+.tracker .tracker-item.active {
   background: red;
+}
+
+.tracker .tracker-link {
+  display: block;
+  width: 10px;
+  height: 10px;
+  text-decoration: none;
 }

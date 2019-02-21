@@ -20,8 +20,33 @@ body {
 }
 
 .bottom-slide {
-  @include slide(darkseagreen);
+  @include slide(white);
+  float: left;
 }
+.horizontal {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+
+  .horizontal-slide {
+    display: inline-block;
+  }
+
+  .horizontal-slide:nth-child(1) {
+    @include slide(navajowhite);
+
+  }
+  .horizontal-slide:nth-child(2) {
+    @include slide(cornflowerblue);
+
+  }
+  .horizontal-slide:nth-child(3) {
+    @include slide(crimson);
+  }
+
+}
+
 .transform {
   transform: translateY(100vh);
 }
@@ -33,12 +58,22 @@ body {
   margin-top: -60px;
   right: 30px;
   list-style: none;
+
+  .tracker-item {
+    @include circle(10px, 1px solid red, none);
+    margin-bottom: 10px;
+
+  }
+  .tracker-item.active {
+    background: red;
+  }
+
+  .tracker-link {
+    display: block;
+    width: 10px;
+    height: 10px;
+    text-decoration: none;
+  }
 }
-.tracker-item {
-  @include circle(10px, 1px solid red, none);
-  margin-bottom: 10px;
-}
-.tracker-item.active {
-  background: red;
-}
+
 

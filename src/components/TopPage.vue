@@ -1,6 +1,6 @@
 <template>
-  <div class="top-slide">
-    <Tracker level="1" :items="this.components"/>
+  <div class="top-slide" :id="`nav_${level}`">
+    <Tracker :level="level" :items="this.components"/>
   </div>
 </template>
 
@@ -13,21 +13,12 @@ export default {
   name: 'TopPage',
   data () {
     return {
-
+      level: 1
     }
   },
   methods: {
-    // showSlidesLength: function () {
-    //   console.log(this.components)
-    // }
-  },
-  created () {
-    this.itemsNumber = this.components
+
   }
-  // computed: {
-  //     itemsNumber: function () {
-  //       return components
-  //     }
-  // }
+
 }
 </script>

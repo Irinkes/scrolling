@@ -1,6 +1,6 @@
 <template>
-    <div class="middle-slide">
-        <Tracker :level="2" :items="this.components"/>
+    <div class="middle-slide" :id="`nav_${level}`">
+        <Tracker :level="level" :items="this.components"/>
     </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   name: 'MiddlePage',
   data () {
     return {
-
+      level: 2
     }
   }
 }
