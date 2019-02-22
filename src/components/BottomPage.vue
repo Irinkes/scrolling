@@ -1,10 +1,10 @@
 <template>
     <div class="horizontal bottom-slide" :id="`nav_${level}`" >
-        <div class="horizontal-slide" :style="{ width: slideWidth + 'px' }">
+        <div class="horizontal-slide" id="horiz_1" :style="{ width: slideWidth + 'px' }">
             <Tracker :level="level" :items="this.components"/>
         </div>
-        <div class="horizontal-slide" :style="{ width: slideWidth + 'px' }"></div>
-        <div class="horizontal-slide" :style="{ width: slideWidth + 'px' }"></div>
+        <div class="horizontal-slide" id="horiz_2" :style="{ width: slideWidth + 'px' }"></div>
+        <div class="horizontal-slide" id="horiz_3" :style="{ width: slideWidth + 'px' }"></div>
     </div>
 </template>
 

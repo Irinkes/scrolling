@@ -32,6 +32,7 @@ export default {
   methods: {
     handleScroll: function (event) {
       let firstSlide = this.getSlideIntoView()
+      let currentHorizontalSlide = this.getHorizontalSlideIntoView()
       let pageHeight = window.innerHeight
       this.pageHeight = 'translateY(' + (-this.heightStyle) + 'px)'
       this.getScrollDirection(event)
@@ -44,6 +45,9 @@ export default {
           } else {
             return
           }
+        } else if (this.horizontalScrolling && currentHorizontalSlide === 1) {
+          console.log('scroll up here')
+          this.horizontalScrolling = false
         } else {
           document.getElementById('nav_' + this.slidesNumber).scrollLeft -= window.innerWidth
         }
@@ -54,6 +58,7 @@ export default {
           console.log(firstSlide)
         } else if (!this.horizontalScrolling && this.currentSlide === this.slidesNumber) {
           // если находимся на последнем слайде, скроллим горизонтально
+          console.log('is it horizontal scrolling?')
           this.horizontalScrolling = true
         } else if (this.horizontalScrolling) {
           document.getElementById('nav_' + this.slidesNumber).scrollLeft += window.innerWidth
@@ -69,16 +74,7 @@ export default {
         this.scrollDirection = 'down'
       }
     },
-    scrollHorizontally: function (e) {
-      e = window.event || e
-      if (this.scrollDirection === 'down') {
-        document.getElementById('nav_' + this.slidesNumber).scrollLeft += window.innerWidth
-      } else if (this.scrollDirection === 'up') {
-        document.getElementById('nav_' + this.slidesNumber).scrollLeft -= window.innerWidth
-      }
 
-      e.preventDefault()
-    },
     intoView: function (elem) {
       let bounding = elem.getBoundingClientRect()
       return (
@@ -98,25 +94,31 @@ export default {
       }
       return slideId
     },
+    getHorizontalSlideIntoView: function () {
+      let slideId
+      for (let i = 1; i <= this.horizontalSlides; i++) {
+        let elem = document.getElementById('horiz_' + i)
+        if (this.intoView(elem)) {
+          slideId = i
+        }
+      }
+      return slideId
+    },
     getFirstLoadedSlide: function () {
       this.firstLoadedSlide = this.getSlideIntoView()
       this.currentSlide = this.firstLoadedSlide
     }
-    // scrollHorizontally: function () {
-    //   let horizontalScrollElem = document.querySelector('.horizontal')
-    //   horizontalScrollElem.scrollLeft = window.innerWidth
-    // }
   },
 
   mounted () {
     this.slidesNumber = this.$children.length
   },
   created () {
-    window.addEventListener('wheel', this.handleScroll)
+    window.addEventListener('wheel', this.handleScroll, false)
     window.addEventListener('load', this.getFirstLoadedSlide)
   },
   destroyed () {
-    window.removeEventListener('wheel', this.handleScroll)
+    window.removeEventListener('wheel', this.handleScroll, false)
   }
 
 }
